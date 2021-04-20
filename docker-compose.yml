@@ -1,0 +1,45 @@
+version: "3"
+
+services:
+  axon:
+    image: axoniq/axonserver:latest
+    container_name: axon-server
+    ports:
+      - "8124:8124"
+      - "8024:8024"
+    networks:
+      - springbankNet
+  mongoDb:
+    image: mongo:latest
+    container_name: mongo-bank
+    environment:
+      - MONGO_INITDB_DATABASE=bank
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=admin
+    ports:
+      - "27017:27017"
+    networks:
+      - springbankNet
+    volumes:
+      - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
+      - ./mongo-valume:/data/db
+  mysql:
+    image: mysql:latest
+    container_name: mysql-bank
+    environment:
+      - MYSQL_ROOT_PASSWORD=admin
+    ports:
+      - "3306:3306"
+    networks:
+      - springbankNet
+    volumes:
+      - ./mysql_volume:/var/lib/mysql
+
+volumes:
+  mongo-valume:
+  mysql_volume:
+
+networks:
+  springbankNet:
+    driver: bridge
+
