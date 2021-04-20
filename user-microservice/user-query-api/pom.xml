@@ -8,11 +8,12 @@
         <version>2.4.5</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>pl.dkiszka</groupId>
+    <groupId>pl.dkiszka.bank-application.user-microservice</groupId>
     <artifactId>user-query-api</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>user-query-api</name>
-    <description>Demo project for Spring Boot</description>
+
+
     <properties>
         <java.version>11</java.version>
     </properties>
