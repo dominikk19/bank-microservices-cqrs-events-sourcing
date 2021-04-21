@@ -1,13 +1,13 @@
-package pl.dkiszka.usercore;
+package pl.dkiszka.bank;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class UserCoreApplication {
+public class UserCmdApiApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(UserCoreApplication.class, args);
+        SpringApplication.run(UserCmdApiApplication.class, args);
     }
 
 }
