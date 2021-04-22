@@ -4,6 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.List;
 
 /**
@@ -15,7 +17,10 @@ import java.util.List;
 @Getter
 @Setter
 public class Account {
+    @Size(min = 2, message = "username must have a min 2 char")
     private String username;
+    @Size(min = 8, message = "password must have a min 8 char")
     private String password;
+    @NotNull
     private List<Role> roles;
 }
