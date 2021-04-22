@@ -16,6 +16,7 @@
 
     <properties>
         <java.version>11</java.version>
+        <vavr.version>0.10.2</vavr.version>
     </properties>
     <dependencies>
         <dependency>
@@ -47,6 +48,17 @@
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-test</artifactId>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.vavr</groupId>
+            <artifactId>vavr</artifactId>
+            <version>${vavr.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>5.3.6</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 

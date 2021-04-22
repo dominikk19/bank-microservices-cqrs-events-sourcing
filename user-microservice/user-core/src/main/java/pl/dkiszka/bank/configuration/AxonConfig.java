@@ -26,7 +26,7 @@ import java.util.Collections;
  * @date 20.04.2021
  */
 @Configuration
-class AxonConfig {
+public class AxonConfig {
 
     @Value("${spring.data.mongodb.host:127.0.0.1}")
     private String mongoHost;
