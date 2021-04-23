@@ -4,7 +4,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 import pl.dkiszka.bank.services.CommandGatewayException;
 
 /**
@@ -13,7 +12,7 @@ import pl.dkiszka.bank.services.CommandGatewayException;
  * @date 21.04.2021
  */
 @ControllerAdvice
-class ExceptionAdviceController extends ResponseEntityExceptionHandler {
+class ExceptionAdviceController {
 
     @ExceptionHandler(value = {CommandGatewayException.class})
     ResponseEntity<Void> commandGatewayException(CommandGatewayException exec) {

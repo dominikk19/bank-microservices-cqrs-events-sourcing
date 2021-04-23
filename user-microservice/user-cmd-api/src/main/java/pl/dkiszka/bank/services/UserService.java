@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 import pl.dkiszka.bank.commands.RegisterUserCommand;
 import pl.dkiszka.bank.dto.RegisterUserResponse;
 
+import java.util.UUID;
+
 /**
  * @author Dominik Kiszka {dominikk19}
  * @project bank-application
@@ -20,10 +22,11 @@ public class UserService {
     private final CommandGateway gateway;
 
     public RegisterUserResponse registerUser(RegisterUserCommand command) {
-        command.setId(command.getId());
+        command.setId(UUID.randomUUID().toString());
 
         return Try.of(() -> {
-            gateway.sendAndWait(command);
+            gateway.send(command);
+            log.info("Send register user command");
             return new RegisterUserResponse("User successfully registered", command.getId());
         }).onFailure(exe -> {
             log.error("Error while processing register user fo id " + command.getId());

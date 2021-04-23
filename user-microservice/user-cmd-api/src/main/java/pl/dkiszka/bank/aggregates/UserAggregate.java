@@ -1,5 +1,6 @@
 package pl.dkiszka.bank.aggregates;
 
+import lombok.extern.slf4j.Slf4j;
 import org.axonframework.commandhandling.CommandHandler;
 import org.axonframework.eventsourcing.EventSourcingHandler;
 import org.axonframework.modelling.command.AggregateIdentifier;
@@ -23,6 +24,7 @@ import java.util.UUID;
  * @date 21.04.2021
  */
 @Aggregate
+@Slf4j
 class UserAggregate {
     @AggregateIdentifier
     private String id;
@@ -36,6 +38,7 @@ class UserAggregate {
 
     @CommandHandler
     public UserAggregate(RegisterUserCommand command) {
+        log.info("CommandHandler RegisterUserCommand");
         this.passwordEncoder = new PasswordEncoderImpl();
 
         var newUser = command.getUser();

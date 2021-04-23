@@ -18,11 +18,16 @@
         <java.version>11</java.version>
         <vavr.version>0.10.2</vavr.version>
     </properties>
+
     <dependencies>
         <dependency>
             <groupId>pl.dkiszka.bank-application.user-microservice</groupId>
             <artifactId>user-core</artifactId>
             <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -54,12 +59,6 @@
             <artifactId>vavr</artifactId>
             <version>${vavr.version}</version>
         </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-webmvc</artifactId>
-            <version>5.3.6</version>
-            <scope>compile</scope>
-        </dependency>
     </dependencies>
 
     <build>
@@ -67,14 +66,6 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <configuration>
-                    <excludes>
-                        <exclude>
-                            <groupId>org.projectlombok</groupId>
-                            <artifactId>lombok</artifactId>
-                        </exclude>
-                    </excludes>
-                </configuration>
             </plugin>
         </plugins>
     </build>

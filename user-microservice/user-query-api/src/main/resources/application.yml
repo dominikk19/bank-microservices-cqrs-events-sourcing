@@ -4,6 +4,7 @@ server:
 spring:
   data:
     mongodb:
-      host: localhost
-      port: 27017
-      database: bank
+#      host: localhost
+#      port: 27017
+#      database: bank
+      uri: mongodb://admin:admin@127.0.0.1:27017/bank?authSource=admin

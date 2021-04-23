@@ -10,10 +10,10 @@ import pl.dkiszka.bank.events.UserUpdatedEvent;
  * @date 21.04.2021
  */
 public interface UserEventHandler {
-    void consume(UserRegisteredEvent event);
+    void on(UserRegisteredEvent event);
 
-    void consume(UserUpdatedEvent event);
+    void on(UserUpdatedEvent event);
 
-    void consume(UserRemovedEvent event);
+    void on(UserRemovedEvent event);
 
 }
