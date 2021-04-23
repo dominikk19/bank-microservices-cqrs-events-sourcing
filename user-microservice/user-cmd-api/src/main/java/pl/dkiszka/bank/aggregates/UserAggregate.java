@@ -32,10 +32,6 @@ class UserAggregate {
 
     private final PasswordEncoder passwordEncoder;
 
-    public UserAggregate() {
-        this.passwordEncoder = new PasswordEncoderImpl();
-    }
-
     @CommandHandler
     public UserAggregate(RegisterUserCommand command) {
         log.info("CommandHandler RegisterUserCommand");
@@ -51,7 +47,6 @@ class UserAggregate {
                 .build();
 
         AggregateLifecycle.apply(event);
-
     }
 
     @CommandHandler

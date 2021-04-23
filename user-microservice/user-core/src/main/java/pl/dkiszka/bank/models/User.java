@@ -2,6 +2,7 @@ package pl.dkiszka.bank.models;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -16,6 +17,7 @@ import javax.validation.constraints.NotNull;
  * @date 21.04.2021
  */
 @AllArgsConstructor
+@NoArgsConstructor
 @Document(collection = "users")
 @Getter
 @Setter

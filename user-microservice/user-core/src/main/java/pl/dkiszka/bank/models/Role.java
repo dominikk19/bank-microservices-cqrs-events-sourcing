@@ -7,7 +7,7 @@ import org.springframework.security.core.GrantedAuthority;
  * @project bank-application
  * @date 21.04.2021
  */
-enum Role implements GrantedAuthority {
+public enum Role implements GrantedAuthority {
     READ_PRIVILEGE,
     WRITE_PRIVILEGE;
 
