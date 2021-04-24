@@ -18,8 +18,10 @@ import java.util.List;
 @Setter
 public class Account {
     @Size(min = 2, message = "username must have a min 2 char")
+    @NotNull(message = "No username was specified")
     private String username;
     @Size(min = 8, message = "password must have a min 8 char")
+    @NotNull(message = "No password was specified")
     private String password;
     @NotNull
     private List<Role> roles;

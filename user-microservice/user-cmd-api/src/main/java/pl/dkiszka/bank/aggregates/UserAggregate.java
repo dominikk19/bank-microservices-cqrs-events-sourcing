@@ -1,5 +1,6 @@
 package pl.dkiszka.bank.aggregates;
 
+import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.axonframework.commandhandling.CommandHandler;
 import org.axonframework.eventsourcing.EventSourcingHandler;
@@ -25,17 +26,17 @@ import java.util.UUID;
  */
 @Aggregate
 @Slf4j
+@NoArgsConstructor
 class UserAggregate {
     @AggregateIdentifier
     private String id;
     private User user;
 
-    private final PasswordEncoder passwordEncoder;
+    private final PasswordEncoder passwordEncoder = new PasswordEncoderImpl();
 
     @CommandHandler
     public UserAggregate(RegisterUserCommand command) {
-        log.info("CommandHandler RegisterUserCommand");
-        this.passwordEncoder = new PasswordEncoderImpl();
+        log.info("UserAggregate CommandHandler RegisterUserCommand");
 
         var newUser = command.getUser();
         newUser.setId(command.getId());
@@ -51,6 +52,8 @@ class UserAggregate {
 
     @CommandHandler
     public void handle(UpdateUserCommand command) {
+        log.info("UserAggregate CommandHandler UpdateUserCommand");
+
         var updatedUser = command.getUser();
         updatedUser.setId(command.getId());
 
@@ -68,7 +71,7 @@ class UserAggregate {
 
     @CommandHandler
     public void handle(RemoveUserCommand command) {
-        var event = new RemoveUserCommand(command.getId());
+        var event = new UserRemovedEvent(command.getId());
 
         AggregateLifecycle.apply(event);
     }

@@ -3,6 +3,7 @@ package pl.dkiszka.bank.commands;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.Setter;
 import org.axonframework.modelling.command.TargetAggregateIdentifier;
 import pl.dkiszka.bank.models.User;
 
@@ -14,6 +15,7 @@ import pl.dkiszka.bank.models.User;
 @AllArgsConstructor
 @Builder
 @Getter
+@Setter
 public class UpdateUserCommand {
 
     @TargetAggregateIdentifier

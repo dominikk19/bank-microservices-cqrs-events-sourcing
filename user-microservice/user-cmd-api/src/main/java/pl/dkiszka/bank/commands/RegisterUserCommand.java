@@ -7,6 +7,9 @@ import lombok.Setter;
 import org.axonframework.modelling.command.TargetAggregateIdentifier;
 import pl.dkiszka.bank.models.User;
 
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
+
 /**
  * @author Dominik Kiszka {dominikk19}
  * @project bank-application
@@ -20,6 +23,8 @@ public class RegisterUserCommand {
 
     @TargetAggregateIdentifier
     private String id;
+    @Valid
+    @NotNull(message = "No user details were supplied")
     private User user;
 
 }

@@ -27,18 +27,25 @@ class UserEventHandlerImpl implements UserEventHandler {
     public void on(UserRegisteredEvent event) {
         log.info("caught the event UserRegisteredEvent");
         userRepository.save(event.getUser());
-        log.info("User by id: " + event.getUser().getId() + " has been saved");
+        loggingPerformedOperation(event.getId(), "saved");
     }
 
     @EventHandler
     public void on(UserUpdatedEvent event) {
         log.info("caught the event UserUpdatedEvent");
         userRepository.save(event.getUser());
+        loggingPerformedOperation(event.getId(), "updated");
     }
 
     @EventHandler
     public void on(UserRemovedEvent event) {
         log.info("caught the event UserRemovedEvent");
         userRepository.deleteById(event.getId());
+        loggingPerformedOperation(event.getId(), "deleted");
+
+    }
+
+    private void loggingPerformedOperation(String userId, String operation){
+        log.info("User by id: {} has been {}", userId, operation );
     }
 }
