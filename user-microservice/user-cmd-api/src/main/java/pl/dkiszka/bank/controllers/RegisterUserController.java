@@ -19,7 +19,7 @@ import javax.validation.Valid;
  * @date 21.04.2021
  */
 @RestController
-@RequestMapping(path = "/api/v1/user")
+@RequestMapping(path = "/api/v1/users")
 @RequiredArgsConstructor
 class RegisterUserController {
     private final UserService userService;

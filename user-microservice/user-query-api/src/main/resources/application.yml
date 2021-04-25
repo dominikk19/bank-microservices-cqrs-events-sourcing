@@ -10,3 +10,9 @@ spring:
       username: admin
       password: admin
       authentication-database: admin
+
+security:
+  oauth2:
+    authorization:
+      jwt:
+        key-value: springbankSigningKey

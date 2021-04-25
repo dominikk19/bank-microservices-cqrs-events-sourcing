@@ -5,6 +5,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -36,6 +37,7 @@ class UserQueryController {
 
     @GetMapping
     @ResponseBody
+    @PreAuthorize("hasAuthority('READ_PRIVILEGE')")
     public ResponseEntity<UserLookupResponse> getAllUsers() {
         return Option.of(userQueryService.getAllUsers())
                 .filter(isUsersNotEmpty)
@@ -45,6 +47,7 @@ class UserQueryController {
 
     @GetMapping(path = "/{id}")
     @ResponseBody
+    @PreAuthorize("hasAuthority('READ_PRIVILEGE')")
     public ResponseEntity<UserLookupResponse> getUserById(@PathVariable("id") String id) {
         return Option.of(userQueryService.getUserById(id))
                 .filter(isUsersNotEmpty)
@@ -54,6 +57,7 @@ class UserQueryController {
 
     @GetMapping(value = "/byFilter")
     @ResponseBody
+    @PreAuthorize("hasAuthority('READ_PRIVILEGE')")
     public ResponseEntity<UserLookupResponse> searchUserByFilter(@RequestParam String filter) {
         return Option.of(userQueryService.findUsersByFilter(filter))
                 .filter(isUsersNotEmpty)

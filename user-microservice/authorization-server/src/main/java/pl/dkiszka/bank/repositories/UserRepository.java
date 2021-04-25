@@ -12,6 +12,6 @@ import java.util.Optional;
  * @date 25.04.2021
  */
 public interface UserRepository extends MongoRepository<User, String> {
-    @Query("{'account.username'} : ?0")
+    @Query("{'account.username' : ?0}")
     Optional<User> findAllByUsername(String username);
 }

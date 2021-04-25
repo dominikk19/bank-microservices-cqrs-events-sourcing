@@ -1,5 +1,6 @@
 package pl.dkiszka.bank.configurations;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
@@ -20,6 +21,7 @@ import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
  * @date 25.04.2021
  */
 @Configuration
+@Slf4j
 class AuthServerConfig extends AuthorizationServerConfigurerAdapter {
 
     @Value("${security.oauth2.client.client-id}")
@@ -48,6 +50,7 @@ class AuthServerConfig extends AuthorizationServerConfigurerAdapter {
         return converter;
     }
 
+    @Bean
     public JwtTokenStore tokenStore() {
         return new JwtTokenStore(tokenConverter());
     }
@@ -69,6 +72,7 @@ class AuthServerConfig extends AuthorizationServerConfigurerAdapter {
 
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
+        log.info("password "+new BCryptPasswordEncoder(12).encode(clientSecret));
         clients
                 .inMemory()
                 .withClient(clientId)

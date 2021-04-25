@@ -11,4 +11,10 @@ spring:
 #      password: admin
       uri: mongodb://admin:admin@127.0.0.1:27017/bank?authSource=admin
 
+security:
+  oauth2:
+    authorization:
+      jwt:
+        key-value: springbankSigningKey
+
 

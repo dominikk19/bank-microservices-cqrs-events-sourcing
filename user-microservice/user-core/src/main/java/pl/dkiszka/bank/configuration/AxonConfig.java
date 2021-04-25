@@ -49,7 +49,7 @@ public class AxonConfig {
     }
 
     @Bean
-    TokenStore tokenStore(MongoTemplate mongoTemplate, Serializer serializer) {
+    TokenStore mongoTokenStore(MongoTemplate mongoTemplate, Serializer serializer) {
         return MongoTokenStore.builder()
                 .mongoTemplate(mongoTemplate)
                 .serializer(serializer)
