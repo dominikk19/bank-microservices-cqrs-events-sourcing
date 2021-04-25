@@ -1,0 +1,22 @@
+server:
+  port: 8084
+
+spring:
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: bank
+      username: admin
+      password: admin
+      authentication-database: admin
+
+security:
+  oauth2:
+    client:
+      client-id: springbankClient
+      client-secret: springbankSecret
+      signing-key: springbankSigningKey
+      token-validity-seconds: 300
+      refresh-token-validity-seconds: 1500
+
