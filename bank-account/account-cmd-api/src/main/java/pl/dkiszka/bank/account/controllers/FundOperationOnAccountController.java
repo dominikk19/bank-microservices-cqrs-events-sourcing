@@ -23,7 +23,7 @@ import javax.validation.Valid;
 @RequestMapping(path = "/api/v1/accounts")
 @RequiredArgsConstructor
 class FundOperationOnAccountController {
-    private AccountService accountService;
+    private final AccountService accountService;
 
 
     @PutMapping(path = "/{id}/withdraw")

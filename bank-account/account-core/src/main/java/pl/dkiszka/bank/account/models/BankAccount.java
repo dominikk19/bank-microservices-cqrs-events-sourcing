@@ -4,9 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -23,10 +23,12 @@ import java.time.LocalDate;
 @Getter
 public class BankAccount {
     @Id
-    @GeneratedValue
     private String id;
     private String accountHolderId;
     private LocalDate creationDate;
     private AccountType accountType;
+    @Setter
     private BigDecimal balance;
+
+
 }

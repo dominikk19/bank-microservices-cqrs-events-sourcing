@@ -1,6 +1,7 @@
 package pl.dkiszka.bank.account.commands;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.axonframework.modelling.command.TargetAggregateIdentifier;
 
@@ -13,6 +14,7 @@ import java.math.BigDecimal;
  * @date 26.04.2021
  */
 @Getter
+@NoArgsConstructor
 public class DepositFundsCommand {
     @TargetAggregateIdentifier
     @Setter

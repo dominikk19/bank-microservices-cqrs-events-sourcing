@@ -1,5 +1,6 @@
 package pl.dkiszka.bank.account.aggregates;
 
+import lombok.NoArgsConstructor;
 import org.axonframework.commandhandling.CommandHandler;
 import org.axonframework.eventsourcing.EventSourcingHandler;
 import org.axonframework.modelling.command.AggregateIdentifier;
@@ -23,6 +24,7 @@ import java.time.LocalDate;
  * @date 26.04.2021
  */
 @Aggregate
+@NoArgsConstructor
 class AccountAggregate {
     @AggregateIdentifier
     private String id;

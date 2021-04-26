@@ -1,4 +1,4 @@
-package pl.dkiszka.accountqueryapi;
+package pl.dkiszka.bank.account;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -14,19 +14,13 @@ spring:
           uri: http://localhost:8081/api/v1/users/**
           predicates:
             - Path=/api/v1/users/
-          filter:
-            - name: putMethod
-              args:
-                methods: PUT
+            - Method=PUT
 
         - id: userCmdApi-RemoveUser
           uri: http://localhost:8081/api/v1/users/**
           predicates:
             - Path=/api/v1/users/**
-          filter:
-            - name: putMethod
-              args:
-                methods: DELETE
+            - Method=DELETE
 
         - id: userQueryApi-findAll
           uri: http://localhost:8082/api/v1/users
@@ -37,3 +31,21 @@ spring:
           uri: http://localhost:8082/api/v1/users/**
           predicates:
             - Path=/api/v1/users/**
+
+        - id: account-openAccount
+          uri: http://localhost:9091/api/v1/accounts
+          predicates:
+            - Path=/api/v1/accounts
+
+        - id: account-operationFundsAccount
+          uri: http://localhost:9091/api/v1/accounts/**
+          predicates:
+            - Path=/api/v1/accounts/**
+            - Method=PUT,DELETE
+
+        - id: account- getAccounts
+          uri: http://localhost:9092/api/v1/accounts/**
+          predicates:
+            - Path=/api/v1/accounts/**
+            - Method=GET
+
