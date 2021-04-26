@@ -1,4 +1,4 @@
-package pl.dkiszka.bank.configuration;
+package pl.dkiszka.bank.account.configurations;
 
 import com.mongodb.client.MongoClient;
 import org.axonframework.eventhandling.tokenstore.TokenStore;
@@ -18,7 +18,7 @@ import org.springframework.context.annotation.Configuration;
 /**
  * @author Dominik Kiszka {dominikk19}
  * @project bank-application
- * @date 20.04.2021
+ * @date 26.04.2021
  */
 @Configuration
 public class AxonConfig {
@@ -29,7 +29,7 @@ public class AxonConfig {
     @Value("${spring.data.mongodb.port:27017}")
     private int mongoPort;
 
-    @Value("${spring.data.mongodb.database:users}")
+    @Value("${spring.data.mongodb.database:bank}")
     private String mongoDatabase;
 
 //    @Bean

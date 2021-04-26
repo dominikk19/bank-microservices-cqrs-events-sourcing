@@ -9,7 +9,7 @@ spring:
 #      database: bank
 #      username: admin
 #      password: admin
-      uri: mongodb://admin:admin@127.0.0.1:27017/bank?authSource=admin
+      uri: mongodb://admin:admin@127.0.0.1:27017/users?authSource=admin
 
 security:
   oauth2:

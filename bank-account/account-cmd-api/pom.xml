@@ -16,9 +16,17 @@
 
     <properties>
         <java.version>11</java.version>
+        <account-core.version>0.0.1-SNAPSHOT</account-core.version>
+        <jakarta.validation-api.version>2.0.2</jakarta.validation-api.version>
+        <vavr.version>0.10.2</vavr.version>
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>pl.dkiszka.bank-application.bank-account</groupId>
+            <artifactId>account-core</artifactId>
+            <version>${account-core.version}</version>
+        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -33,6 +41,17 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>jakarta.validation</groupId>
+            <artifactId>jakarta.validation-api</artifactId>
+            <version>${jakarta.validation-api.version}</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.vavr</groupId>
+            <artifactId>vavr</artifactId>
+            <version>${vavr.version}</version>
         </dependency>
     </dependencies>
 
